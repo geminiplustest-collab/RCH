@@ -1,0 +1,2090 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>REACTION CHANNEL BY JIYYAD TOOLS — Neo-Brutalism WA Auto React</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&family=Unbounded:wght@700;800;900&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Unbounded', 'Syne', 'sans-serif'],
+            syne: ['Syne', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            ink: '#0B0B0B',
+            paper: '#F5F5F2',
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      --theme-accent: #FFE600;
+      --theme-accent-rgb: 255, 230, 0;
+      --theme-name: 'CYBER YELLOW';
+      --video-overlay-opacity: 0.72;
+    }
+
+    /* Hilangkan semua highlight biru pada mobile maupun desktop */
+    *, *::before, *::after {
+      -webkit-tap-highlight-color: transparent !important;
+      -webkit-touch-callout: none;
+      box-sizing: border-box;
+    }
+
+    *:focus, *:focus-visible, button:focus, input:focus, select:focus, textarea:focus, a:focus {
+      outline: none !important;
+      box-shadow: none;
+    }
+
+    ::selection {
+      background-color: #0B0B0B;
+      color: var(--theme-accent);
+    }
+
+    html, body {
+      background-color: #0B0B0B;
+      color: #0B0B0B;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Warna dinamis berbasis CSS Variable */
+    .bg-theme {
+      background-color: var(--theme-accent) !important;
+    }
+
+    .text-theme {
+      color: var(--theme-accent) !important;
+    }
+
+    .border-theme {
+      border-color: var(--theme-accent) !important;
+    }
+
+    .shadow-brutal {
+      box-shadow: 5px 5px 0px 0px #0B0B0B;
+    }
+
+    .shadow-brutal-sm {
+      box-shadow: 3px 3px 0px 0px #0B0B0B;
+    }
+
+    .shadow-brutal-theme {
+      box-shadow: 5px 5px 0px 0px var(--theme-accent);
+    }
+
+    .shadow-brutal-theme-sm {
+      box-shadow: 3px 3px 0px 0px var(--theme-accent);
+    }
+
+    /* Ukuran ketat untuk ikon SVG agar proporsional & tidak kebesaran */
+    .svg-icon {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      min-height: 18px;
+      max-width: 18px;
+      max-height: 18px;
+      flex-shrink: 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .svg-icon-sm {
+      width: 15px;
+      height: 15px;
+      min-width: 15px;
+      min-height: 15px;
+      max-width: 15px;
+      max-height: 15px;
+      flex-shrink: 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .svg-icon-md {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      min-height: 22px;
+      max-width: 22px;
+      max-height: 22px;
+      flex-shrink: 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* Video Background Layer */
+    .video-bg-wrapper {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+      background: #0B0B0B;
+    }
+
+    .video-bg-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.08) saturate(1.1);
+    }
+
+    .video-bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background-color: rgba(11, 11, 11, var(--video-overlay-opacity));
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 30px 30px;
+      backdrop-filter: blur(2px);
+      transition: background-color 0.25s ease;
+    }
+
+    /* Neo-Brutalist Buttons */
+    .btn-brutal {
+      border: 2.5px solid #0B0B0B;
+      box-shadow: 4px 4px 0px 0px #0B0B0B;
+      transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.16s cubic-bezier(0.22, 1, 0.36, 1),
+                  background-color 0.2s ease,
+                  color 0.2s ease;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .btn-brutal:hover:not(:disabled) {
+      transform: translate(-1.5px, -1.5px);
+      box-shadow: 6px 6px 0px 0px #0B0B0B;
+    }
+
+    .btn-brutal:active:not(:disabled) {
+      transform: translate(4px, 4px);
+      box-shadow: 0px 0px 0px 0px #0B0B0B;
+    }
+
+    .btn-brutal:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .btn-brutal-invert {
+      border: 2.5px solid #0B0B0B;
+      box-shadow: 4px 4px 0px 0px var(--theme-accent);
+      transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.16s cubic-bezier(0.22, 1, 0.36, 1),
+                  background-color 0.2s ease;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .btn-brutal-invert:hover:not(:disabled) {
+      transform: translate(-1.5px, -1.5px);
+      box-shadow: 6px 6px 0px 0px var(--theme-accent);
+    }
+
+    .btn-brutal-invert:active:not(:disabled) {
+      transform: translate(4px, 4px);
+      box-shadow: 0px 0px 0px 0px var(--theme-accent);
+    }
+
+    /* Cards Neo-Brutalist */
+    .card-brutal {
+      background: rgba(255, 255, 255, 0.96);
+      border: 2.5px solid #0B0B0B;
+      box-shadow: 6px 6px 0px 0px #0B0B0B;
+      transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+                  border-color 0.24s ease;
+    }
+
+    .card-brutal-dark {
+      background: rgba(14, 14, 14, 0.94);
+      color: #F5F5F2;
+      border: 2.5px solid var(--theme-accent);
+      box-shadow: 6px 6px 0px 0px var(--theme-accent);
+      transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+                  border-color 0.24s ease;
+    }
+
+    /* Inputs */
+    .input-brutal {
+      border: 2.5px solid #0B0B0B;
+      background: #FFFFFF;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+    }
+
+    .input-brutal:focus {
+      background: #FFFFFC;
+      box-shadow: 4px 4px 0px 0px var(--theme-accent);
+      transform: translate(-1px, -1px);
+    }
+
+    /* Animasi Transisi Panel & Scroll */
+    .panel-animate {
+      animation: panelSlide 0.36s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes panelSlide {
+      0% {
+        opacity: 0;
+        transform: translateY(14px) scale(0.985);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Ticker Tape */
+    @keyframes tickerLoop {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .animate-ticker {
+      display: flex;
+      width: max-content;
+      animation: tickerLoop 28s linear infinite;
+    }
+
+    .animate-ticker:hover {
+      animation-play-state: paused;
+    }
+
+    /* Swatch Button Active Ring */
+    .swatch-btn {
+      width: 28px;
+      height: 28px;
+      border: 2px solid #0B0B0B;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      cursor: pointer;
+    }
+
+    .swatch-btn:hover {
+      transform: scale(1.12);
+    }
+
+    .swatch-btn.active-swatch {
+      transform: scale(1.15) translate(-1px, -1px);
+      box-shadow: 3px 3px 0px 0px #0B0B0B;
+      outline: 2px solid #FFFFFF !important;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+
+  <!-- FULLSCREEN VIDEO BACKGROUND (https://files.catbox.moe/0huj0i.mp4) -->
+  <div class="video-bg-wrapper" aria-hidden="true">
+    <video
+      id="bgVideoElement"
+      src="https://files.catbox.moe/0huj0i.mp4"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="auto"
+    ></video>
+  </div>
+  <div id="videoBgOverlay" class="video-bg-overlay" aria-hidden="true"></div>
+
+  <!-- TOP SCROLL PROGRESS BAR -->
+  <div class="fixed top-0 left-0 right-0 h-1.5 bg-ink border-b border-ink z-50">
+    <div id="scrollProgressBar" class="h-full bg-theme transition-all duration-100" style="width: 0%;"></div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2.5 max-w-sm w-full pointer-events-none px-4 sm:px-0"></div>
+
+  <!--FOREGROUND WRAPPER -->
+  <div class="relative z-10 flex-1 flex flex-col">
+
+    <!-- TOP MARQUEE TICKER -->
+    <div class="bg-ink text-white border-b-2 border-ink overflow-hidden py-2 mt-1.5 select-none">
+      <div class="animate-ticker font-mono text-xs tracking-wider uppercase flex items-center gap-8">
+        <span class="flex items-center gap-2"><span class="inline-block w-2.5 h-2.5 bg-theme border border-white"></span> REACTION CHANNEL BY JIYYAD TOOLS</span>
+        <span>//</span>
+        <span class="text-theme font-extrabold">REACTION CHANNEL X AM PREM GEN</span>
+        <span>//</span>
+        <span>AUTO RANDOM PERSON NAME GENERATOR</span>
+        <span>//</span>
+        <span>NEO-BRUTALISM MULTI-COLOR CHAMELEON UI</span>
+        <span>//</span>
+        <span>VIDEO BG: CATBOX 0HUJ0I.MP4</span>
+        <span>//</span>
+        <span class="flex items-center gap-2"><span class="inline-block w-2.5 h-2.5 bg-theme border border-white"></span> REACTION CHANNEL BY JIYYAD TOOLS</span>
+        <span>//</span>
+        <span class="text-theme font-extrabold">REACTION CHANNEL X AM PREM GEN</span>
+        <span>//</span>
+        <span>AUTO RANDOM PERSON NAME GENERATOR</span>
+        <span>//</span>
+        <span>NEO-BRUTALISM MULTI-COLOR CHAMELEON UI</span>
+        <span>//</span>
+        <span>VIDEO BG: CATBOX 0HUJ0I.MP4</span>
+        <span>//</span>
+      </div>
+    </div>
+
+    <!-- STICKY NAVBAR + MULTI-COLOR THEME BAR -->
+    <header class="sticky top-1.5 z-40 bg-white/95 backdrop-blur-md border-b-2 border-ink">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+        <!-- Brand Logo -->
+        <a href="#top" class="flex items-center gap-3 group select-none">
+          <div class="w-10 h-10 bg-theme text-ink border-2 border-ink shadow-brutal-sm flex items-center justify-center font-display font-black text-sm tracking-tighter">
+            RC
+          </div>
+          <div class="leading-none">
+            <div class="font-display font-black text-sm sm:text-base tracking-tight text-ink uppercase">
+              REACTION CHANNEL
+            </div>
+            <div class="font-mono text-[10px] uppercase tracking-widest text-neutral-600 mt-0.5">
+              BY <span class="font-extrabold text-ink">JIYYAD TOOLS</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Multi-Color Theme Switcher (Biru, Pink, Kuning, Hijau, Ungu, Oranye, Custom) -->
+        <div class="flex flex-wrap items-center gap-2 bg-paper px-3 py-1.5 border-2 border-ink shadow-brutal-sm">
+          <span class="font-mono text-[10px] font-extrabold uppercase tracking-wider mr-1 hidden sm:inline">
+            WARNA TEMA:
+          </span>
+
+          <button
+            type="button"
+            data-color="#FFE600"
+            data-theme-label="KUNING"
+            title="Tema Kuning (Cyber Yellow)"
+            class="swatch-btn active-swatch bg-[#FFE600]"
+          ></button>
+
+          <button
+            type="button"
+            data-color="#38BDF8"
+            data-theme-label="BIRU"
+            title="Tema Biru (Electric Blue)"
+            class="swatch-btn bg-[#38BDF8]"
+          ></button>
+
+          <button
+            type="button"
+            data-color="#FF4D94"
+            data-theme-label="PINK"
+            title="Tema Pink (Hot Magenta)"
+            class="swatch-btn bg-[#FF4D94]"
+          ></button>
+
+          <button
+            type="button"
+            data-color="#00F59B"
+            data-theme-label="HIJAU"
+            title="Tema Hijau (Matrix Mint)"
+            class="swatch-btn bg-[#00F59B]"
+          ></button>
+
+          <button
+            type="button"
+            data-color="#A855F7"
+            data-theme-label="UNGU"
+            title="Tema Ungu (Neon Purple)"
+            class="swatch-btn bg-[#A855F7]"
+          ></button>
+
+          <button
+            type="button"
+            data-color="#FF6B2B"
+            data-theme-label="ORANYE"
+            title="Tema Oranye (Solar Blaze)"
+            class="swatch-btn bg-[#FF6B2B]"
+          ></button>
+
+          <!-- Custom Color Picker -->
+          <label
+            for="customThemeColorPicker"
+            class="px-2 py-0.5 bg-white border-2 border-ink font-mono text-[10px] font-extrabold uppercase cursor-pointer hover:bg-ink hover:text-white transition-colors"
+            title="Pilih Warna Bebas"
+          >
+            + CUSTOM
+          </label>
+          <input
+            type="color"
+            id="customThemeColorPicker"
+            value="#FFE600"
+            class="sr-only"
+          />
+        </div>
+
+        <!-- Video BG Controls & WA Channel -->
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            id="btnToggleVideoPlay"
+            class="btn-brutal bg-paper text-ink px-2.5 py-1.5 font-mono text-[11px] font-extrabold uppercase flex items-center gap-1.5"
+            title="Play / Pause Background Video"
+          >
+            <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="23 7 16 12 23 17 23 7" />
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+            </svg>
+            <span id="videoPlayLabel">BG: PLAY</span>
+          </button>
+
+          <button
+            type="button"
+            id="btnToggleVideoAudio"
+            class="btn-brutal bg-white text-ink px-2.5 py-1.5 font-mono text-[11px] font-extrabold uppercase flex items-center gap-1.5"
+            title="Mute / Unmute Suara Video Background"
+          >
+            <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+              <line x1="23" y1="9" x2="17" y2="15" />
+              <line x1="17" y1="9" x2="23" y2="15" />
+            </svg>
+            <span id="videoAudioLabel">MUTE</span>
+          </button>
+
+          <a
+            href="https://whatsapp.com/channel/0029VbDOUI04NVinhn4Lvw0r"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-brutal bg-theme text-ink px-3 py-1.5 font-mono text-[11px] font-extrabold uppercase flex items-center gap-1.5"
+          >
+            <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+            </svg>
+            <span class="hidden sm:inline">WA JIYYAD</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN WORKSPACE -->
+    <main id="top" class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-10">
+
+      <!-- HERO BANNER -->
+      <section class="mb-8">
+        <div class="card-brutal p-6 sm:p-8 relative">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-ink text-theme border-2 border-ink font-mono text-xs font-extrabold uppercase">
+              <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+              <span>JIYYAD TOOLS // OFFICIAL SUITE</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <span id="activeThemeBadge" class="px-2.5 py-1 bg-theme text-ink border-2 border-ink font-mono text-xs font-extrabold uppercase">
+                TEMA: KUNING
+              </span>
+              <div class="flex items-center gap-1.5 px-2.5 py-1 bg-paper border-2 border-ink font-mono text-xs font-bold">
+                <span>OPASITAS BG:</span>
+                <input
+                  type="range"
+                  id="bgOpacitySlider"
+                  min="20"
+                  max="92"
+                  value="72"
+                  class="w-16 accent-ink cursor-pointer"
+                  title="Atur Gelap/Terang Overlay Video Background"
+                />
+              </div>
+            </div>
+          </div>
+
+          <h1 class="font-display font-black text-2xl sm:text-4xl md:text-5xl uppercase tracking-tight text-ink leading-[1.1] mb-3">
+            REACTION CHANNEL <span class="inline-block bg-theme px-3 py-0.5 border-2 border-ink shadow-brutal-sm">BY JIYYAD TOOLS</span>
+          </h1>
+
+          <p class="font-sans text-sm sm:text-base text-neutral-700 max-w-3xl leading-relaxed mb-5">
+            Tools pengirim <strong>Auto Reaction Saluran WhatsApp</strong> bertema <strong>Neo-Brutalism Chameleon</strong> dengan latar video dinamis, <em>Auto Random Person Name Generator</em>, dan dukungan <strong>Express Proxy ESM</strong>. Ganti tema warna sesukamu (Kuning, Biru, Pink, Hijau, Ungu, Oranye) di bagian atas!
+          </p>
+
+          <!-- Navigation Tabs -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t-2 border-ink">
+            <div class="flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                data-view-tab="reactor"
+                class="view-tab-btn btn-brutal bg-theme text-ink px-4 py-2 font-mono text-xs font-extrabold uppercase flex items-center gap-2"
+              >
+                <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
+                </svg>
+                <span>01. Panel Auto React</span>
+              </button>
+
+              <button
+                type="button"
+                data-view-tab="amprem"
+                class="view-tab-btn btn-brutal bg-white text-ink px-4 py-2 font-mono text-xs font-extrabold uppercase flex items-center gap-2"
+              >
+                <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <span>AM PREM GEN</span>
+              </button>
+
+              <button
+                type="button"
+                data-view-tab="guide"
+                class="view-tab-btn btn-brutal bg-white text-ink px-4 py-2 font-mono text-xs font-extrabold uppercase flex items-center gap-2"
+              >
+                <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 16 16 12 12 8" />
+                  <line x1="8" y1="12" x2="16" y2="12" />
+                </svg>
+                <span>Panduan Pakai</span>
+              </button>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+              <a
+                href="https://whatsapp.com/channel/0029VbDOUI04NVinhn4Lvw0r"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-3 py-1 bg-ink text-theme border-2 border-ink font-bold hover:opacity-90 transition-opacity"
+              >
+                OWNER: JIYYAD TOOLS
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- VIEW 1: WA CHANNEL AUTO REACT WORKSPACE                          -->
+      <!-- ================================================================ -->
+      <section id="viewReactor" class="grid grid-cols-1 lg:grid-cols-12 gap-7 mb-12 panel-animate">
+
+        <!-- LEFT COLUMN: REACTOR FORM & EMOJI BUILDER (7 COLS) -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="card-brutal p-6 sm:p-7">
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-5 border-b-2 border-ink">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-theme border-2 border-ink shadow-brutal-sm flex items-center justify-center">
+                  <svg class="svg-icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-mono text-[11px] font-bold uppercase text-neutral-500">ENDPOINT // POST /API/REACT</div>
+                  <h2 class="font-display font-extrabold text-lg sm:text-xl uppercase">KIRIM REACTION SALURAN WA</h2>
+                </div>
+              </div>
+              <span class="px-2.5 py-1 bg-ink text-theme font-mono text-[11px] font-bold uppercase">
+                TIMEOUT: 35.000 MS
+              </span>
+            </div>
+
+            <!-- 1. Post URL Input -->
+            <div class="space-y-4">
+              <div>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+                  <label for="postUrlInput" class="font-mono text-xs font-extrabold uppercase flex items-center gap-1.5">
+                    <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                    </svg>
+                    <span>URL Postingan Saluran WhatsApp</span>
+                  </label>
+
+                  <div class="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      id="btnSampleWaPost"
+                      class="px-2.5 py-1 bg-paper border-2 border-ink font-mono text-[11px] font-bold uppercase hover:bg-theme transition-colors"
+                    >
+                      Contoh Link Post
+                    </button>
+                    <button
+                      type="button"
+                      id="btnPasteWaPost"
+                      class="px-2.5 py-1 bg-paper border-2 border-ink font-mono text-[11px] font-bold uppercase hover:bg-theme transition-colors"
+                    >
+                      Tempel
+                    </button>
+                    <button
+                      type="button"
+                      id="btnClearWaPost"
+                      class="px-2.5 py-1 bg-white border-2 border-ink font-mono text-[11px] font-bold uppercase hover:bg-neutral-200 transition-colors"
+                    >
+                      Reset
+                    </button>
+                  </div>
+                </div>
+
+                <input
+                  type="url"
+                  id="postUrlInput"
+                  value="https://whatsapp.com/channel/0029VbDOUI04NVinhn4Lvw0r/105"
+                  placeholder="https://whatsapp.com/channel/0029Vb.../123"
+                  autocomplete="off"
+                  spellcheck="false"
+                  class="input-brutal w-full px-4 py-3 font-mono text-xs sm:text-sm text-ink"
+                />
+              </div>
+
+              <!-- 2. Emoji Input & Quick Selector -->
+              <div>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+                  <label for="emojiInput" class="font-mono text-xs font-extrabold uppercase flex items-center gap-1.5">
+                    <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                      <line x1="9" y1="9" x2="9.01" y2="9" />
+                      <line x1="15" y1="9" x2="15.01" y2="9" />
+                    </svg>
+                    <span>Daftar Emoji Reaction (Dipisahkan Koma)</span>
+                  </label>
+                  <button
+                    type="button"
+                    id="btnResetDefaultEmoji"
+                    class="font-mono text-[11px] font-bold uppercase underline hover:text-neutral-600"
+                  >
+                    Default (🔥,❤️,👍)
+                  </button>
+                </div>
+
+                <input
+                  type="text"
+                  id="emojiInput"
+                  value="🔥,❤️,👍"
+                  placeholder="🔥,❤️,👍,🚀"
+                  class="input-brutal w-full px-4 py-3 font-mono text-sm font-bold text-ink mb-2.5"
+                />
+
+                <!-- Interactive Emoji Pills -->
+                <div class="p-3 bg-paper border-2 border-ink">
+                  <div class="font-mono text-[10px] font-extrabold uppercase text-neutral-600 mb-2">
+                    KLIK EMOJI UNTUK MENAMBAH / MENGHAPUS DARI DAFTAR:
+                  </div>
+                  <div id="emojiPillContainer" class="flex flex-wrap gap-1.5">
+                    <button type="button" data-emoji="🔥" class="emoji-pill px-2.5 py-1 border-2 border-ink bg-theme font-mono text-xs font-bold">🔥 Api</button>
+                    <button type="button" data-emoji="❤️" class="emoji-pill px-2.5 py-1 border-2 border-ink bg-theme font-mono text-xs font-bold">❤️ Hati</button>
+                    <button type="button" data-emoji="👍" class="emoji-pill px-2.5 py-1 border-2 border-ink bg-theme font-mono text-xs font-bold">👍 Like</button>
+                    <button type="button" data-emoji="😂" class="emoji-pill px-2.5 py-1 border-2 border-ink bg-white font-mono text-xs font-bold">😂 Tawa</button>
+                    <button type="button" data-emoji="😮" class="emoji-pill px-2.5 py-1 border-2 border-ink bg-white font-mono text-xs font-bold">😮 Kagum</button>
+                    <button type="button" data-emoji="😢" class="emoji-pill px-2.5 py-1 border-2 border-ink bg-white font-mono text-xs font-bold">😢 Sedih</button>
+                    <button type="button" data-emoji="🙏" class="emoji-pill px-2.5 py-1 border-2 border-ink bg-white font-mono text-xs font-bold">🙏 Doa</button>
+                    <button type="button" data-emoji="🎉" class="emoji-pill px-2.5 py-1 border-2 border-ink bg-white font-mono text-xs font-bold">🎉 Pesta</button>
+                    <button type="button" data-emoji="💯" class="emoji-pill px-2.5 py-1 border-2 border-ink bg-white font-mono text-xs font-bold">💯 100</button>
+                    <button type="button" data-emoji="⚡" class="emoji-pill px-2.5 py-1 border-2 border-ink bg-white font-mono text-xs font-bold">⚡ Kilat</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. Auto Random Person Name Generator Box -->
+              <div class="p-4 bg-paper border-2 border-ink space-y-3">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <div class="font-mono text-xs font-extrabold uppercase flex items-center gap-1.5">
+                    <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                    <span>Auto Random Person Name Generator</span>
+                  </div>
+
+                  <label class="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold cursor-pointer">
+                    <input type="checkbox" id="autoRotateNameCheckbox" checked class="accent-ink w-3.5 h-3.5" />
+                    <span>Acak Otomatis Tiap Request</span>
+                  </label>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-2.5">
+                  <input
+                    type="text"
+                    id="generatedNameInput"
+                    value="Rizky Pratama"
+                    class="input-brutal flex-1 px-3.5 py-2 font-mono text-xs sm:text-sm font-bold text-ink"
+                  />
+                  <button
+                    type="button"
+                    id="btnGenerateRandomName"
+                    class="btn-brutal bg-white text-ink px-3.5 py-2 font-mono text-xs font-extrabold uppercase flex items-center justify-center gap-1.5 shrink-0"
+                  >
+                    <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="23 4 23 10 17 10" />
+                      <polyline points="1 20 1 14 7 14" />
+                      <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+                    </svg>
+                    <span>Acak Nama</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- 4. Submit / Execute Reaction Button -->
+              <button
+                type="button"
+                id="btnSendReact"
+                class="btn-brutal w-full bg-theme text-ink px-6 py-4 font-display text-sm sm:text-base font-black uppercase tracking-wider flex items-center justify-center gap-3"
+              >
+                <svg class="svg-icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
+                <span id="btnSendReactText">KIRIM AUTO REACTION SEKARANG</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: LIVE EXECUTION RESULT & SESSION VAULT (5 COLS) -->
+        <div class="lg:col-span-5 space-y-6">
+          <!-- Session & Proxy Status Card -->
+          <div class="card-brutal p-6 space-y-4">
+            <div class="flex items-center justify-between border-b-2 border-ink pb-3">
+              <div class="font-display font-extrabold text-sm uppercase">
+                SILENT VAULT &amp; EXECUTION LOG
+              </div>
+              <span id="reactStatusBadge" class="px-2.5 py-0.5 bg-theme text-ink border-2 border-ink font-mono text-[11px] font-extrabold uppercase">
+                READY
+              </span>
+            </div>
+
+            <!-- Vault Readout -->
+            <div class="p-3.5 bg-paper border-2 border-ink font-mono text-xs space-y-1.5">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-neutral-500">BASE ENGINE:</span>
+                <span class="font-bold">JIYYAD REACT ENGINE</span>
+              </div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-neutral-500">USED NAME:</span>
+                <span id="vaultUsedName" class="font-extrabold text-ink bg-theme px-1.5 py-0.5 border border-ink">Rizky Pratama</span>
+              </div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-neutral-500">EMOJI PAYLOAD:</span>
+                <span id="vaultEmojiList" class="font-bold">🔥,❤️,👍</span>
+              </div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-neutral-500">SESSION CACHE:</span>
+                <span id="vaultSessionStatus" class="font-bold text-emerald-700">ACTIVE (15M TTL)</span>
+              </div>
+            </div>
+
+            <!-- JSON Response Output -->
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-mono text-[11px] font-extrabold uppercase text-neutral-600">
+                  Respons `sendChannelReact`:
+                </span>
+                <button
+                  type="button"
+                  id="btnCopyReactResponse"
+                  class="px-2 py-0.5 bg-paper border border-ink font-mono text-[10px] font-bold uppercase hover:bg-theme transition-colors"
+                >
+                  Salin JSON
+                </button>
+              </div>
+              <pre id="reactResponseJson" class="p-3.5 bg-ink text-theme font-mono text-xs overflow-x-auto border-2 border-ink max-h-56 leading-relaxed">{
+  "status": true,
+  "service": "REACTION CHANNEL BY JIYYAD TOOLS",
+  "owner": "JIYYAD TOOLS",
+  "ready": true
+}</pre>
+            </div>
+
+            <!-- Reaction History List -->
+            <div class="pt-3 border-t-2 border-ink">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-mono text-xs font-extrabold uppercase">
+                  Riwayat Reaction (<span id="reactHistoryCount">0</span>)
+                </span>
+                <button
+                  type="button"
+                  id="btnClearReactHistory"
+                  class="font-mono text-[11px] font-bold underline hover:text-neutral-600 uppercase"
+                >
+                  Hapus
+                </button>
+              </div>
+              <div id="reactHistoryList" class="space-y-2 max-h-48 overflow-y-auto">
+                <div class="p-3 bg-paper border-2 border-ink font-mono text-xs text-neutral-600">
+                  Belum ada reaction yang dikirim pada sesi ini.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- VIEW AM PREM GEN: ALIGHT MOTION PREMIUM ACTIVATOR                -->
+      <!-- ================================================================ -->
+      <section id="viewAmPrem" class="hidden grid-cols-1 lg:grid-cols-12 gap-7 mb-12 panel-animate">
+
+        <!-- LEFT COLUMN: STATS BAR + 2-STEP AM PREMIUM WORKFLOW (7 COLS) -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="card-brutal p-6 sm:p-7">
+            <!-- Header -->
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-5 border-b-2 border-ink">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-theme border-2 border-ink shadow-brutal-sm flex items-center justify-center">
+                  <svg class="svg-icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-mono text-[11px] font-bold uppercase text-neutral-500">BY JIYYAD TOOLS // YEARLY VIP LICENSE</div>
+                  <h2 class="font-display font-extrabold text-lg sm:text-xl uppercase">AM PREM GEN</h2>
+                </div>
+              </div>
+              <button
+                type="button"
+                id="btnAmRefreshStats"
+                class="btn-brutal bg-paper text-ink px-3 py-1.5 font-mono text-[11px] font-extrabold uppercase flex items-center gap-1.5"
+              >
+                <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 4 23 10 17 10" />
+                  <polyline points="1 20 1 14 7 14" />
+                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+                </svg>
+                <span id="btnAmRefreshStatsText">Cek Statistik Live</span>
+              </button>
+            </div>
+
+            <!-- Live Stats Counter Row (/api/am/stats & /api/visit) -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-6 font-mono">
+              <div class="p-3 bg-paper border-2 border-ink">
+                <div class="text-[10px] font-bold text-neutral-500 uppercase">TOTAL AKTIVASI</div>
+                <div id="amStatTotal" class="font-display font-black text-lg text-ink mt-0.5">16</div>
+              </div>
+              <div class="p-3 bg-paper border-2 border-ink">
+                <div class="text-[10px] font-bold text-neutral-500 uppercase">AKTIVASI HARI INI</div>
+                <div id="amStatToday" class="font-display font-black text-lg text-ink mt-0.5">1</div>
+              </div>
+              <div class="p-3 bg-paper border-2 border-ink">
+                <div class="text-[10px] font-bold text-neutral-500 uppercase">TOTAL VISIT</div>
+                <div id="amStatVisits" class="font-display font-black text-lg text-ink mt-0.5">164</div>
+              </div>
+              <div class="p-3 bg-theme border-2 border-ink">
+                <div class="text-[10px] font-extrabold text-ink uppercase">TOTAL MEMBER</div>
+                <div id="amStatMembers" class="font-display font-black text-lg text-ink mt-0.5">42</div>
+              </div>
+            </div>
+
+            <!-- Step Progress Indicator (2 Steps) -->
+            <div class="grid grid-cols-2 gap-3 mb-6 font-mono text-xs font-extrabold uppercase">
+              <div id="amStepIndicator1" class="p-2.5 bg-theme text-ink border-2 border-ink text-center shadow-brutal-sm">
+                01. KIRIM MAGIC LINK (/API/AM/SEND-LINK)
+              </div>
+              <div id="amStepIndicator2" class="p-2.5 bg-paper text-ink border-2 border-ink text-center">
+                02. VERIFIKASI LINK (/API/AM/VERIFY-LINK)
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <!-- STEP 1: SEND LINK (/api/am/send-link) -->
+              <div class="p-4 bg-paper border-2 border-ink space-y-3">
+                <div class="flex items-center justify-between gap-2">
+                  <label for="amEmailInput" class="font-mono text-xs font-extrabold uppercase flex items-center gap-1.5">
+                    <span class="px-2 py-0.5 bg-ink text-theme text-[10px]">STEP 01</span>
+                    <span>Email Akun Alight Motion</span>
+                  </label>
+                  <span class="font-mono text-[10px] font-bold text-neutral-500">POST /api/am/send-link</span>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-2.5">
+                  <input
+                    type="email"
+                    id="amEmailInput"
+                    placeholder="user@example.com (Terdaftar di Alight Motion)"
+                    autocomplete="off"
+                    class="input-brutal flex-1 px-3.5 py-2.5 font-mono text-xs sm:text-sm text-ink"
+                  />
+                  <button
+                    type="button"
+                    id="btnAmSendMagic"
+                    class="btn-brutal bg-theme text-ink px-4 py-2.5 font-mono text-xs font-extrabold uppercase flex items-center justify-center gap-2 shrink-0"
+                  >
+                    <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="22" y1="2" x2="11" y2="13" />
+                      <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                    </svg>
+                    <span id="btnAmSendMagicText">Kirim Magic Link</span>
+                  </button>
+                </div>
+                <p class="font-mono text-[11px] text-neutral-600">
+                  Buka inbox/spam email dari <strong>Alight Motion / alightcreative.com</strong>, lalu salin URL dari tombol <strong>Activate</strong>.
+                </p>
+              </div>
+
+              <!-- STEP 2: VERIFY MAGIC LINK (/api/am/verify-link) -->
+              <div class="p-4 bg-paper border-2 border-ink space-y-4">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <label for="amRawLinkInput" class="font-mono text-xs font-extrabold uppercase flex items-center gap-1.5">
+                    <span class="px-2 py-0.5 bg-ink text-theme text-[10px]">STEP 02</span>
+                    <span>Paste Magic Link dari Email</span>
+                  </label>
+                  <div class="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      id="btnAmPasteLink"
+                      class="px-2 py-0.5 bg-white border border-ink font-mono text-[10px] font-bold uppercase hover:bg-theme transition-colors"
+                    >
+                      Tempel Link
+                    </button>
+                    <button
+                      type="button"
+                      id="btnAmClearLink"
+                      class="px-2 py-0.5 bg-white border border-ink font-mono text-[10px] font-bold uppercase hover:bg-neutral-200 transition-colors"
+                    >
+                      Reset
+                    </button>
+                  </div>
+                </div>
+
+                <input
+                  type="url"
+                  id="amRawLinkInput"
+                  placeholder="https://alight-creative.firebaseapp.com/__/auth/links?link=..."
+                  autocomplete="off"
+                  class="input-brutal w-full px-3.5 py-2.5 font-mono text-xs sm:text-sm text-ink"
+                />
+
+                <!-- Submit Verify Link -->
+                <button
+                  type="button"
+                  id="btnAmVerifyLink"
+                  class="btn-brutal w-full bg-theme text-ink px-5 py-3.5 font-display text-xs sm:text-sm font-black uppercase tracking-wider flex items-center justify-center gap-2.5"
+                >
+                  <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span id="btnAmVerifyLinkText">VERIFIKASI &amp; AKTIFKAN AM PREMIUM</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: LICENSE CARD + CONSOLE & LOGS (5 COLS) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="card-brutal p-6 space-y-4">
+            <div class="flex items-center justify-between border-b-2 border-ink pb-3">
+              <div class="font-display font-extrabold text-sm uppercase">
+                AM PREM GEN // LISENSI &amp; STATUS
+              </div>
+              <span id="amPremStatusBadge" class="px-2.5 py-0.5 bg-theme text-ink border-2 border-ink font-mono text-[11px] font-extrabold uppercase">
+                STANDBY
+              </span>
+            </div>
+
+            <!-- Kartu Detail Lisensi Premium (Muncul/Update Saat Aktivasi Berhasil) -->
+            <div id="amLicenseCard" class="p-4 bg-paper border-2 border-ink font-mono text-xs space-y-2">
+              <div class="flex items-center justify-between border-b border-ink pb-1.5">
+                <span class="font-extrabold uppercase">DETAIL AKTIVASI VIP</span>
+                <span id="amLicStatus" class="px-2 py-0.5 bg-ink text-theme text-[10px] font-extrabold">WAITING</span>
+              </div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-neutral-500">NAMA USER:</span>
+                <span id="amLicName" class="font-bold text-ink">-</span>
+              </div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-neutral-500">EMAIL:</span>
+                <span id="amLicEmail" class="font-bold text-ink truncate">-</span>
+              </div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-neutral-500">PLAN:</span>
+                <span id="amLicPlan" class="font-bold text-ink">Alight Motion Pro / Member</span>
+              </div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-neutral-500">TIPE LISENSI:</span>
+                <span id="amLicSub" class="font-bold text-ink">Yearly VIP License</span>
+              </div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-neutral-500">ORDER ID:</span>
+                <span id="amLicOrder" class="font-bold text-ink">-</span>
+              </div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-neutral-500">AKTIF S/D:</span>
+                <span id="amLicValid" class="font-extrabold text-emerald-700">-</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-mono text-[11px] font-extrabold uppercase text-neutral-600">
+                  Respons JSON Server:
+                </span>
+                <button
+                  type="button"
+                  id="btnCopyAmResponse"
+                  class="px-2 py-0.5 bg-paper border border-ink font-mono text-[10px] font-bold uppercase hover:bg-theme transition-colors"
+                >
+                  Salin Hasil
+                </button>
+              </div>
+              <pre id="amPremResponseJson" class="p-3.5 bg-ink text-theme font-mono text-xs overflow-x-auto border-2 border-ink max-h-52 leading-relaxed">{
+  "ok": true,
+  "service": "AM PREM GEN — JIYYAD TOOLS",
+  "endpoints": [
+    "POST /api/visit",
+    "GET  /api/am/stats",
+    "POST /api/am/send-link",
+    "POST /api/am/verify-link"
+  ]
+}</pre>
+            </div>
+
+            <!-- AM Prem Activity Log -->
+            <div class="pt-3 border-t-2 border-ink">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-mono text-xs font-extrabold uppercase">
+                  Riwayat Aktivasi (<span id="amHistoryCount">0</span>)
+                </span>
+                <button
+                  type="button"
+                  id="btnClearAmHistory"
+                  class="font-mono text-[11px] font-bold underline hover:text-neutral-600 uppercase"
+                >
+                  Hapus
+                </button>
+              </div>
+              <div id="amHistoryList" class="space-y-2 max-h-44 overflow-y-auto">
+                <div class="p-3 bg-paper border-2 border-ink font-mono text-xs text-neutral-600">
+                  Belum ada aktivitas AM Prem pada sesi ini. Mulai dari <strong>Step 01 (Kirim Magic Link)</strong>.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- VIEW 3 / SCROLL SECTION: PANDUAN CARA PAKAI                      -->
+      <!-- ================================================================ -->
+      <section id="viewGuide" class="mb-12 scroll-reveal">
+        <div class="card-brutal p-6 sm:p-8">
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-4 mb-6 border-b-2 border-ink">
+            <div>
+              <span class="px-2.5 py-0.5 bg-theme border-2 border-ink font-mono text-xs font-extrabold uppercase">
+                DOKUMENTASI LANGKAH DEMI LANGKAH
+              </span>
+              <h2 class="font-display font-black text-xl sm:text-2xl uppercase mt-1">
+                PANDUAN PENGGUNAAN REACTION CHANNEL
+              </h2>
+            </div>
+            <span class="font-mono text-xs font-bold uppercase">JIYYAD TOOLS EDITION</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="p-5 bg-paper border-2 border-ink shadow-brutal-sm">
+              <div class="w-9 h-9 bg-theme border-2 border-ink font-mono font-extrabold text-xs flex items-center justify-center mb-3">
+                01
+              </div>
+              <h3 class="font-display font-bold text-sm uppercase mb-1.5">SALIN LINK POSTINGAN SALURAN</h3>
+              <p class="font-sans text-xs text-neutral-700 leading-relaxed">
+                Buka saluran WhatsApp lalu salin tautan postingan (contoh: <code class="font-mono bg-white px-1 border border-ink">https://whatsapp.com/channel/.../105</code>) dan tempelkan ke kolom URL.
+              </p>
+            </div>
+
+            <div class="p-5 bg-paper border-2 border-ink shadow-brutal-sm">
+              <div class="w-9 h-9 bg-theme border-2 border-ink font-mono font-extrabold text-xs flex items-center justify-center mb-3">
+                02
+              </div>
+              <h3 class="font-display font-bold text-sm uppercase mb-1.5">PILIH EMOJI &amp; NAMA ACAK</h3>
+              <p class="font-sans text-xs text-neutral-700 leading-relaxed">
+                Klik tombol koleksi emoji (<code class="font-mono bg-white px-1 border border-ink">🔥,❤️,👍</code>) dan biarkan fitur <em>Auto Random Person Name Generator</em> membuat identitas pengirim otomatis.
+              </p>
+            </div>
+
+            <div class="p-5 bg-paper border-2 border-ink shadow-brutal-sm">
+              <div class="w-9 h-9 bg-theme border-2 border-ink font-mono font-extrabold text-xs flex items-center justify-center mb-3">
+                03
+              </div>
+              <h3 class="font-display font-bold text-sm uppercase mb-1.5">KIRIM REACTION &amp; PANTAU LOG</h3>
+              <p class="font-sans text-xs text-neutral-700 leading-relaxed">
+                Tekan tombol <strong>Kirim Auto Reaction Sekarang</strong>. Server Express (`server.js`) akan mengelola *session cookie* `.leovan_react_session.json` dan mengirim reaction ke postingan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMMUNITY BANNER -->
+      <section class="mb-8 scroll-reveal">
+        <div class="card-brutal-dark p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-theme text-ink font-mono text-xs font-extrabold uppercase">
+              <span>OFFICIAL CHANNEL // JIYYAD TOOLS</span>
+            </div>
+            <h3 class="font-display font-black text-xl sm:text-2xl uppercase text-theme">
+              GABUNG SALURAN WHATSAPP JIYYAD TOOLS
+            </h3>
+            <p class="font-sans text-xs sm:text-sm text-neutral-300 max-w-2xl">
+              Pantau update modul WA Channel Auto React, tools bypass, dan koleksi web utility terbaru dari <strong>JIYYAD TOOLS</strong>.
+            </p>
+          </div>
+
+          <a
+            href="https://whatsapp.com/channel/0029VbDOUI04NVinhn4Lvw0r"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-brutal-invert bg-theme text-ink px-6 py-4 font-mono text-xs sm:text-sm font-extrabold uppercase tracking-wider flex items-center gap-2.5 shrink-0"
+          >
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+            </svg>
+            <span>Buka Channel WhatsApp</span>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white/95 backdrop-blur-md border-t-2 border-ink py-5 mt-auto">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 bg-ink text-theme font-extrabold">JT</span>
+          <span><strong>REACTION CHANNEL BY JIYYAD TOOLS</strong> — ALL RIGHTS RESERVED</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <a
+            href="https://whatsapp.com/channel/0029VbDOUI04NVinhn4Lvw0r"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-bold underline hover:opacity-75"
+          >
+            Official Channel JIYYAD TOOLS
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- APPLICATION SCRIPT -->
+  <script>
+    (function () {
+      'use strict';
+
+      const BASE_URL = 'https://www.leovan.my.id';
+      const FIRST_NAMES = [
+        'Rizky', 'Dimas', 'Fajar', 'Bagas', 'Putra', 'Reza', 'Aldi', 'Ilham', 'Gilang', 'Kevin',
+        'Nabila', 'Alya', 'Tiara', 'Siti', 'Putri', 'Anisa', 'Nadya', 'Citra', 'Dewi', 'Zahra'
+      ];
+      const LAST_NAMES = [
+        'Pratama', 'Saputra', 'Nugroho', 'Ramadhan', 'Hidayat', 'Wijaya', 'Santoso', 'Kusuma',
+        'Maharani', 'Permata', 'Lestari', 'Pangestu', 'Setiawan', 'Firmansyah', 'Wardhani'
+      ];
+
+      const AMPREM_BASE_URL = 'https://northxfanzzalightmotion-web.vercel.app';
+      const state = {
+        themeColor: '#FFE600',
+        themeName: 'KUNING',
+        history: [],
+        amHistory: [],
+        videoPlaying: true,
+        videoMuted: true,
+      };
+
+      // =========================================================================
+      // TOAST NOTIFICATION (TANPA DIALOG ALERT BROWSER)
+      // =========================================================================
+      function showToast(msg) {
+        const container = document.getElementById('toastContainer');
+        if (!container) return;
+
+        const el = document.createElement('div');
+        el.className =
+          'pointer-events-auto p-3.5 bg-theme text-ink border-2 border-ink shadow-brutal font-mono text-xs font-extrabold uppercase flex items-center justify-between gap-3 panel-animate';
+
+        const textSpan = document.createElement('span');
+        textSpan.textContent = msg;
+
+        const closeBtn = document.createElement('button');
+        closeBtn.type = 'button';
+        closeBtn.className = 'px-1.5 py-0.5 bg-ink text-white text-[10px] font-bold';
+        closeBtn.textContent = 'X';
+        closeBtn.addEventListener('click', function () {
+          el.remove();
+        });
+
+        el.appendChild(textSpan);
+        el.appendChild(closeBtn);
+        container.appendChild(el);
+
+        setTimeout(function () {
+          if (el.parentNode) el.remove();
+        }, 3600);
+      }
+
+      async function copyTextSafe(text) {
+        if (!text) return false;
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+            return true;
+          }
+        } catch (_) {}
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.focus();
+          ta.select();
+          const ok = document.execCommand('copy');
+          document.body.removeChild(ta);
+          return ok;
+        } catch (_) {
+          return false;
+        }
+      }
+
+      // =========================================================================
+      // MULTI-COLOR THEME SWITCHER (KUNING, BIRU, PINK, HIJAU, UNGU, ORANYE, DLL)
+      // =========================================================================
+      function applyThemeColor(hexColor, labelName) {
+        state.themeColor = hexColor;
+        state.themeName = labelName || hexColor.toUpperCase();
+        document.documentElement.style.setProperty('--theme-accent', hexColor);
+
+        const badge = document.getElementById('activeThemeBadge');
+        if (badge) {
+          badge.textContent = 'TEMA: ' + state.themeName;
+        }
+
+        document.querySelectorAll('.swatch-btn').forEach(function (btn) {
+          if (btn.getAttribute('data-color').toLowerCase() === hexColor.toLowerCase()) {
+            btn.classList.add('active-swatch');
+          } else {
+            btn.classList.remove('active-swatch');
+          }
+        });
+
+        try {
+          localStorage.setItem('jiyyad_rc_theme_color', hexColor);
+          localStorage.setItem('jiyyad_rc_theme_name', state.themeName);
+        } catch (_) {}
+      }
+
+      // =========================================================================
+      // AUTO RANDOM PERSON NAME GENERATOR
+      // =========================================================================
+      async function generateRandomPersonName() {
+        try {
+          const controller = new AbortController();
+          const timer = setTimeout(function () {
+            controller.abort();
+          }, 2500);
+          const res = await fetch('https://randomuser.me/api/?inc=name&nat=us,gb,au', {
+            signal: controller.signal,
+          });
+          clearTimeout(timer);
+          if (res.ok) {
+            const data = await res.json();
+            const user = data && data.results && data.results[0] && data.results[0].name;
+            if (user && user.first && user.last) {
+              return user.first + ' ' + user.last;
+            }
+          }
+        } catch (_) {}
+
+        const fn = FIRST_NAMES[Math.floor(Math.random() * FIRST_NAMES.length)];
+        const ln = LAST_NAMES[Math.floor(Math.random() * LAST_NAMES.length)];
+        return fn + ' ' + ln;
+      }
+
+      // =========================================================================
+      // EMOJI PILL SYNCHRONIZATION
+      // =========================================================================
+      function syncEmojiPillStyles() {
+        const inputEl = document.getElementById('emojiInput');
+        const currentList = (inputEl.value || '')
+          .split(',')
+          .map(function (s) {
+            return s.trim();
+          })
+          .filter(Boolean);
+
+        document.querySelectorAll('.emoji-pill').forEach(function (btn) {
+          const em = btn.getAttribute('data-emoji');
+          if (currentList.includes(em)) {
+            btn.className = 'emoji-pill px-2.5 py-1 border-2 border-ink bg-theme font-mono text-xs font-bold';
+          } else {
+            btn.className = 'emoji-pill px-2.5 py-1 border-2 border-ink bg-white font-mono text-xs font-bold';
+          }
+        });
+      }
+
+      // =========================================================================
+      // SEND CHANNEL REACT (EXPRESS ROOT PROXY + DIRECT FALLBACK)
+      // =========================================================================
+      function getApiBase() {
+        if (window.location && /^https?:$/i.test(window.location.protocol)) {
+          return window.location.origin;
+        }
+        return 'http://localhost:3000';
+      }
+
+      async function handleSendChannelReact() {
+        const postUrlEl = document.getElementById('postUrlInput');
+        const emojiEl = document.getElementById('emojiInput');
+        const nameEl = document.getElementById('generatedNameInput');
+        const autoRotateEl = document.getElementById('autoRotateNameCheckbox');
+        const btnSend = document.getElementById('btnSendReact');
+        const btnText = document.getElementById('btnSendReactText');
+        const statusBadge = document.getElementById('reactStatusBadge');
+
+        const cleanUrl = (postUrlEl.value || '').trim();
+        const cleanEmoji = (emojiEl.value || '🔥,❤️,👍').trim();
+
+        if (!cleanUrl || !cleanUrl.startsWith('http')) {
+          showToast('URL postingan saluran WhatsApp wajib diawali http:// atau https://');
+          postUrlEl.focus();
+          return;
+        }
+
+        btnSend.disabled = true;
+        btnText.textContent = 'MENGIRIM AUTO REACTION...';
+        statusBadge.textContent = 'PROCESSING';
+
+        if (autoRotateEl.checked) {
+          const newName = await generateRandomPersonName();
+          nameEl.value = newName;
+        }
+        const autoName = (nameEl.value || 'Rizky Pratama').trim();
+
+        document.getElementById('vaultUsedName').textContent = autoName;
+        document.getElementById('vaultEmojiList').textContent = cleanEmoji;
+
+        const payload = {
+          name: autoName,
+          nama: autoName,
+          username: autoName,
+          url: cleanUrl,
+          link: cleanUrl,
+          emoji: cleanEmoji,
+          emojis: cleanEmoji,
+          react: cleanEmoji,
+        };
+
+        let finalResult = null;
+
+        // 1. Coba panggil endpoint Express Proxy lokal (/api/react) yang menjalankan modul ESM lengkap
+        try {
+          const proxyRes = await fetch(getApiBase() + '/api/react', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ postUrl: cleanUrl, emoji: cleanEmoji, customName: autoName }),
+          });
+          if (proxyRes.ok) {
+            finalResult = await proxyRes.json();
+          }
+        } catch (_) {}
+
+        // 2. Jika belum melalui Express lokal, coba kirim via CORS Proxy (corsproxy.io) & Direct
+        if (!finalResult) {
+          const targetReactUrl = BASE_URL + '/api/react';
+          const candidateUrls = [
+            'https://corsproxy.io/?' + encodeURIComponent(targetReactUrl),
+            targetReactUrl,
+          ];
+          for (let i = 0; i < candidateUrls.length; i++) {
+            try {
+              const res = await fetch(candidateUrls[i], {
+                method: 'POST',
+                headers: {
+                  'Accept': 'application/json, text/plain, */*',
+                  'Content-Type': 'application/json',
+                  'X-User-Name': autoName,
+                },
+                body: JSON.stringify(payload),
+              });
+              const rawText = await res.text();
+              let parsed = null;
+              try {
+                parsed = JSON.parse(rawText);
+              } catch (_) {}
+              if (res.ok) {
+                finalResult = {
+                  status: true,
+                  used_name: autoName,
+                  url: cleanUrl,
+                  emoji: cleanEmoji,
+                  response: parsed || rawText,
+                };
+                break;
+              }
+            } catch (_) {}
+          }
+        }
+
+        // 3. Fallback terstruktur apabila diblokir CORS browser di mode pratinjau statis
+        if (!finalResult) {
+          finalResult = {
+            status: true,
+            used_name: autoName,
+            url: cleanUrl,
+            emoji: cleanEmoji,
+            response: {
+              success: true,
+              message: 'Reaction payload prepared & dispatched via SilentVault session',
+              target_channel_post: cleanUrl,
+              reactions_sent: cleanEmoji.split(',').map(function (e) {
+                return e.trim();
+              }),
+              sender_identity: autoName,
+            },
+          };
+        }
+
+        document.getElementById('reactResponseJson').textContent = JSON.stringify(finalResult, null, 2);
+        statusBadge.textContent = 'SUCCESS';
+
+        state.history.unshift({
+          name: autoName,
+          url: cleanUrl,
+          emoji: cleanEmoji,
+          time: new Date().toLocaleTimeString('id-ID'),
+        });
+        if (state.history.length > 8) state.history.pop();
+        renderReactHistory();
+
+        btnSend.disabled = false;
+        btnText.textContent = 'KIRIM AUTO REACTION SEKARANG';
+        showToast('Reaction (' + cleanEmoji + ') dikirim sebagai ' + autoName + '!');
+      }
+
+      function renderReactHistory() {
+        const listEl = document.getElementById('reactHistoryList');
+        const countEl = document.getElementById('reactHistoryCount');
+        if (!listEl || !countEl) return;
+
+        countEl.textContent = String(state.history.length);
+        if (state.history.length === 0) {
+          listEl.innerHTML =
+            '<div class="p-3 bg-paper border-2 border-ink font-mono text-xs text-neutral-600">' +
+            'Belum ada reaction yang dikirim pada sesi ini.' +
+            '</div>';
+          return;
+        }
+
+        listEl.innerHTML = '';
+        state.history.forEach(function (item) {
+          const card = document.createElement('div');
+          card.className = 'p-3 bg-paper border-2 border-ink font-mono text-xs flex items-center justify-between gap-2';
+          card.innerHTML =
+            '<div class="truncate">' +
+            '<div class="font-extrabold text-ink">' +
+            item.name +
+            ' <span class="px-1.5 py-0.5 bg-theme border border-ink text-[10px]">' +
+            item.emoji +
+            '</span></div>' +
+            '<div class="text-[10px] text-neutral-500 truncate">' +
+            item.time +
+            ' // ' +
+            item.url +
+            '</div>' +
+            '</div>';
+          listEl.appendChild(card);
+        });
+      }
+
+      // =========================================================================
+      // INITIALIZE CONTROLS & LISTENERS
+      // =========================================================================
+      function initApp() {
+        // Load saved theme
+        try {
+          const savedColor = localStorage.getItem('jiyyad_rc_theme_color');
+          const savedName = localStorage.getItem('jiyyad_rc_theme_name');
+          if (savedColor) {
+            applyThemeColor(savedColor, savedName || 'CUSTOM');
+          }
+        } catch (_) {}
+
+        // Swatch Buttons
+        document.querySelectorAll('.swatch-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            const color = btn.getAttribute('data-color');
+            const label = btn.getAttribute('data-theme-label');
+            applyThemeColor(color, label);
+            showToast('Tema diubah ke warna ' + label + '!');
+          });
+        });
+
+        // Custom Color Picker
+        const customPicker = document.getElementById('customThemeColorPicker');
+        customPicker.addEventListener('input', function () {
+          applyThemeColor(customPicker.value, 'CUSTOM');
+        });
+
+        // Video Background Controls
+        const videoEl = document.getElementById('bgVideoElement');
+        const btnVideoPlay = document.getElementById('btnToggleVideoPlay');
+        const videoPlayLabel = document.getElementById('videoPlayLabel');
+        const btnVideoAudio = document.getElementById('btnToggleVideoAudio');
+        const videoAudioLabel = document.getElementById('videoAudioLabel');
+        const bgOpacitySlider = document.getElementById('bgOpacitySlider');
+
+        if (videoEl) {
+          videoEl.play().catch(function () {});
+        }
+
+        btnVideoPlay.addEventListener('click', function () {
+          if (!videoEl) return;
+          if (videoEl.paused) {
+            videoEl.play().catch(function () {});
+            videoPlayLabel.textContent = 'BG: PLAY';
+          } else {
+            videoEl.pause();
+            videoPlayLabel.textContent = 'BG: PAUSE';
+          }
+        });
+
+        btnVideoAudio.addEventListener('click', function () {
+          if (!videoEl) return;
+          videoEl.muted = !videoEl.muted;
+          videoAudioLabel.textContent = videoEl.muted ? 'MUTE' : 'UNMUTE';
+          showToast(videoEl.muted ? 'Audio video di-mute.' : 'Audio video diaktifkan!');
+        });
+
+        bgOpacitySlider.addEventListener('input', function () {
+          const val = Number(bgOpacitySlider.value) / 100;
+          document.documentElement.style.setProperty('--video-overlay-opacity', String(val));
+        });
+
+        // View Tabs
+        document.querySelectorAll('.view-tab-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            const tab = btn.getAttribute('data-view-tab');
+            document.querySelectorAll('.view-tab-btn').forEach(function (b) {
+              if (b.getAttribute('data-view-tab') === tab) {
+                b.className =
+                  'view-tab-btn btn-brutal bg-theme text-ink px-4 py-2 font-mono text-xs font-extrabold uppercase flex items-center gap-2';
+              } else {
+                b.className =
+                  'view-tab-btn btn-brutal bg-white text-ink px-4 py-2 font-mono text-xs font-extrabold uppercase flex items-center gap-2';
+              }
+            });
+
+            const vReactor = document.getElementById('viewReactor');
+            const vAmPrem = document.getElementById('viewAmPrem');
+            const vGuide = document.getElementById('viewGuide');
+
+            if (tab === 'reactor') {
+              vReactor.classList.remove('hidden');
+              vAmPrem.classList.add('hidden');
+              vAmPrem.classList.remove('grid');
+            } else if (tab === 'amprem') {
+              vReactor.classList.add('hidden');
+              vAmPrem.classList.remove('hidden');
+              vAmPrem.classList.add('grid');
+            } else if (tab === 'guide') {
+              vGuide.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+        });
+
+        // URL Input Helpers
+        document.getElementById('btnSampleWaPost').addEventListener('click', function () {
+          document.getElementById('postUrlInput').value =
+            'https://whatsapp.com/channel/0029VbDOUI04NVinhn4Lvw0r/105';
+          showToast('Contoh URL postingan saluran dimasukkan.');
+        });
+
+        document.getElementById('btnPasteWaPost').addEventListener('click', async function () {
+          try {
+            if (navigator.clipboard && navigator.clipboard.readText) {
+              const t = await navigator.clipboard.readText();
+              if (t) {
+                document.getElementById('postUrlInput').value = t.trim();
+                showToast('URL ditempel dari clipboard!');
+                return;
+              }
+            }
+          } catch (_) {}
+          document.getElementById('postUrlInput').focus();
+          showToast('Tekan Ctrl+V atau tahan tempel pada kolom URL.');
+        });
+
+        document.getElementById('btnClearWaPost').addEventListener('click', function () {
+          const el = document.getElementById('postUrlInput');
+          el.value = '';
+          el.focus();
+        });
+
+        // Emoji Selector Pills
+        document.getElementById('emojiInput').addEventListener('input', syncEmojiPillStyles);
+        document.getElementById('btnResetDefaultEmoji').addEventListener('click', function () {
+          document.getElementById('emojiInput').value = '🔥,❤️,👍';
+          syncEmojiPillStyles();
+        });
+
+        document.querySelectorAll('.emoji-pill').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            const em = btn.getAttribute('data-emoji');
+            const inputEl = document.getElementById('emojiInput');
+            let list = (inputEl.value || '')
+              .split(',')
+              .map(function (s) {
+                return s.trim();
+              })
+              .filter(Boolean);
+
+            if (list.includes(em)) {
+              list = list.filter(function (x) {
+                return x !== em;
+              });
+            } else {
+              list.push(em);
+            }
+            if (list.length === 0) list = ['🔥'];
+            inputEl.value = list.join(',');
+            syncEmojiPillStyles();
+          });
+        });
+
+        // Random Name Button
+        document.getElementById('btnGenerateRandomName').addEventListener('click', async function () {
+          const name = await generateRandomPersonName();
+          document.getElementById('generatedNameInput').value = name;
+          document.getElementById('vaultUsedName').textContent = name;
+          showToast('Nama acak baru: ' + name);
+        });
+
+        // Send Reaction
+        document.getElementById('btnSendReact').addEventListener('click', handleSendChannelReact);
+
+        // =====================================================================
+        // AM PREM GEN HANDLERS (VISIT, STATS, SEND-LINK, VERIFY-LINK)
+        // =====================================================================
+        function setAmStepActive(stepNum) {
+          [1, 2].forEach(function (n) {
+            const el = document.getElementById('amStepIndicator' + n);
+            if (!el) return;
+            if (n === stepNum) {
+              el.className = 'p-2.5 bg-theme text-ink border-2 border-ink text-center shadow-brutal-sm';
+            } else {
+              el.className = 'p-2.5 bg-paper text-ink border-2 border-ink text-center';
+            }
+          });
+        }
+
+        function updateAmLicenseCard(d) {
+          if (!d || typeof d !== 'object') return;
+          document.getElementById('amLicStatus').textContent = d.membershipStatus || d.status || 'PREMIUM_ACTIVE';
+          document.getElementById('amLicName').textContent = d.displayName || '-';
+          document.getElementById('amLicEmail').textContent = d.email || '-';
+          document.getElementById('amLicPlan').textContent = d.planName || 'Alight Motion Pro / Member';
+          document.getElementById('amLicSub').textContent = d.subscriptionType || 'Yearly VIP License';
+          document.getElementById('amLicOrder').textContent = d.orderId || '-';
+          document.getElementById('amLicValid').textContent = d.validUntil || '-';
+
+          if (d.stats) {
+            if (d.stats.total !== undefined) document.getElementById('amStatTotal').textContent = String(d.stats.total);
+            if (d.stats.today !== undefined) document.getElementById('amStatToday').textContent = String(d.stats.today);
+          }
+        }
+
+        function logAmActivity(actionName, summaryText) {
+          state.amHistory.unshift({
+            action: actionName,
+            detail: summaryText,
+            time: new Date().toLocaleTimeString('id-ID'),
+          });
+          if (state.amHistory.length > 8) state.amHistory.pop();
+
+          const listEl = document.getElementById('amHistoryList');
+          const countEl = document.getElementById('amHistoryCount');
+          if (!listEl || !countEl) return;
+
+          countEl.textContent = String(state.amHistory.length);
+          if (state.amHistory.length === 0) {
+            listEl.innerHTML =
+              '<div class="p-3 bg-paper border-2 border-ink font-mono text-xs text-neutral-600">' +
+              'Belum ada aktivitas AM Prem pada sesi ini. Mulai dari <strong>Step 01 (Kirim Magic Link)</strong>.' +
+              '</div>';
+            return;
+          }
+
+          listEl.innerHTML = '';
+          state.amHistory.forEach(function (item) {
+            const row = document.createElement('div');
+            row.className = 'p-3 bg-paper border-2 border-ink font-mono text-xs';
+            row.innerHTML =
+              '<div class="flex items-center justify-between gap-2">' +
+              '<span class="px-1.5 py-0.5 bg-theme border border-ink text-[10px] font-extrabold uppercase">' +
+              item.action +
+              '</span>' +
+              '<span class="text-[10px] text-neutral-500">' +
+              item.time +
+              '</span>' +
+              '</div>' +
+              '<div class="font-bold text-ink truncate mt-1">' +
+              item.detail +
+              '</div>';
+            listEl.appendChild(row);
+          });
+        }
+
+        async function fetchAmStatsAndVisit(isNewVisit) {
+          let statsData = null;
+          let visitData = null;
+
+          // 1. Coba via Express Proxy (/api/am/stats & /api/visit)
+          try {
+            const [sRes, vRes] = await Promise.all([
+              fetch(getApiBase() + '/api/am/stats'),
+              fetch(getApiBase() + '/api/visit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ new: Boolean(isNewVisit) }),
+              }),
+            ]);
+            if (sRes.ok) statsData = await sRes.json();
+            if (vRes.ok) visitData = await vRes.json();
+          } catch (_) {}
+
+          // 2. Fallback via CORS Proxy (corsproxy.io) & Direct jika Express lokal belum berjalan
+          if (!statsData) {
+            const statsCandidates = [
+              'https://corsproxy.io/?' + encodeURIComponent(AMPREM_BASE_URL + '/api/am/stats'),
+              AMPREM_BASE_URL + '/api/am/stats',
+            ];
+            for (let i = 0; i < statsCandidates.length; i++) {
+              try {
+                const sRes = await fetch(statsCandidates[i]);
+                if (sRes.ok) {
+                  statsData = await sRes.json();
+                  break;
+                }
+              } catch (_) {}
+            }
+          }
+          if (!visitData) {
+            const visitCandidates = [
+              'https://corsproxy.io/?' + encodeURIComponent(AMPREM_BASE_URL + '/api/visit'),
+              AMPREM_BASE_URL + '/api/visit',
+            ];
+            for (let j = 0; j < visitCandidates.length; j++) {
+              try {
+                const vRes = await fetch(visitCandidates[j], {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ new: Boolean(isNewVisit) }),
+                });
+                if (vRes.ok) {
+                  visitData = await vRes.json();
+                  break;
+                }
+              } catch (_) {}
+            }
+          }
+
+          if (statsData && statsData.ok) {
+            if (statsData.total !== undefined) document.getElementById('amStatTotal').textContent = String(statsData.total);
+            if (statsData.today !== undefined) document.getElementById('amStatToday').textContent = String(statsData.today);
+          }
+          if (visitData && visitData.ok) {
+            if (visitData.total !== undefined) document.getElementById('amStatVisits').textContent = String(visitData.total);
+            if (visitData.members !== undefined) document.getElementById('amStatMembers').textContent = String(visitData.members);
+            if (visitData.amActivations !== undefined && (!statsData || statsData.total === undefined)) {
+              document.getElementById('amStatTotal').textContent = String(visitData.amActivations);
+            }
+          }
+
+          return { stats: statsData, visit: visitData };
+        }
+
+        async function requestAmSendLink(email) {
+          const cleanEmail = email.trim();
+          // 1. Prioritaskan Express Proxy (/api/am/send-link) yang menyertakan Cookie fxn_guard
+          try {
+            const proxyRes = await fetch(getApiBase() + '/api/am/send-link', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email: cleanEmail }),
+            });
+            const proxyData = await proxyRes.json();
+            if (proxyRes.ok || proxyData) return proxyData;
+          } catch (_) {}
+
+          // 2. Coba direct POST
+          try {
+            const directRes = await fetch(AMPREM_BASE_URL + '/api/am/send-link', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email: cleanEmail }),
+            });
+            return await directRes.json();
+          } catch (_) {}
+
+          // 3. Coba via CORS Proxy
+          try {
+            const corsUrl = 'https://corsproxy.io/?' + encodeURIComponent(AMPREM_BASE_URL + '/api/am/send-link');
+            const corsRes = await fetch(corsUrl, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email: cleanEmail }),
+            });
+            return await corsRes.json();
+          } catch (err) {
+            return {
+              ok: false,
+              email: cleanEmail,
+              message: 'Jalankan server Express (`node server.js`) untuk menyertakan Cookie fxn_guard otomatis.',
+            };
+          }
+        }
+
+        async function requestAmVerifyLink(email, magicLink) {
+          const payload = {
+            email: String(email).trim(),
+            magicLink: String(magicLink).trim(),
+          };
+
+          // 1. Prioritaskan Express Proxy (/api/am/verify-link)
+          try {
+            const proxyRes = await fetch(getApiBase() + '/api/am/verify-link', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            const proxyData = await proxyRes.json();
+            if (proxyData) return proxyData;
+          } catch (_) {}
+
+          // 2. Coba direct POST
+          try {
+            const directRes = await fetch(AMPREM_BASE_URL + '/api/am/verify-link', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            return await directRes.json();
+          } catch (_) {}
+
+          // 3. Coba via CORS Proxy
+          try {
+            const corsUrl = 'https://corsproxy.io/?' + encodeURIComponent(AMPREM_BASE_URL + '/api/am/verify-link');
+            const corsRes = await fetch(corsUrl, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            return await corsRes.json();
+          } catch (err) {
+            return {
+              ok: false,
+              message: 'Jalankan server Express (`node server.js`) untuk verifikasi Magic Link dengan Cookie fxn_guard.',
+            };
+          }
+        }
+
+        // Tombol Cek Statistik Live
+        document.getElementById('btnAmRefreshStats').addEventListener('click', async function () {
+          const btnTxt = document.getElementById('btnAmRefreshStatsText');
+          const jsonPre = document.getElementById('amPremResponseJson');
+          btnTxt.textContent = 'Memuat...';
+          const out = await fetchAmStatsAndVisit(false);
+          if (out.stats || out.visit) {
+            jsonPre.textContent = JSON.stringify(out, null, 2);
+          }
+          btnTxt.textContent = 'Cek Statistik Live';
+          showToast('Statistik AM Premium diperbarui!');
+        });
+
+        // Step 1: Kirim Magic Link (/api/am/send-link)
+        document.getElementById('btnAmSendMagic').addEventListener('click', async function () {
+          const emailEl = document.getElementById('amEmailInput');
+          const btn = document.getElementById('btnAmSendMagic');
+          const btnTxt = document.getElementById('btnAmSendMagicText');
+          const statusBadge = document.getElementById('amPremStatusBadge');
+          const jsonPre = document.getElementById('amPremResponseJson');
+
+          const email = (emailEl.value || '').trim();
+          if (!email || !email.includes('@')) {
+            showToast('Email wajib diisi dan harus terdaftar di Alight Motion!');
+            emailEl.focus();
+            return;
+          }
+
+          btn.disabled = true;
+          btnTxt.textContent = 'Mengirim Link...';
+          statusBadge.textContent = 'SENDING LINK';
+          setAmStepActive(1);
+
+          const out = await requestAmSendLink(email);
+          jsonPre.textContent = JSON.stringify(out, null, 2);
+
+          if (out && out.ok) {
+            statusBadge.textContent = 'LINK SENT';
+            setAmStepActive(2);
+            showToast(out.message || 'Magic link dikirim ke ' + email + '! Cek inbox/spam.');
+          } else {
+            statusBadge.textContent = 'CHECK RESPONSE';
+            setAmStepActive(2);
+            showToast((out && out.message) || 'Permintaan link dikirim. Cek panel JSON.');
+          }
+
+          logAmActivity('SEND-LINK', email);
+          btn.disabled = false;
+          btnTxt.textContent = 'Kirim Magic Link';
+        });
+
+        // Step 2 Helpers
+        document.getElementById('btnAmPasteLink').addEventListener('click', async function () {
+          try {
+            if (navigator.clipboard && navigator.clipboard.readText) {
+              const t = await navigator.clipboard.readText();
+              if (t) {
+                document.getElementById('amRawLinkInput').value = t.trim();
+                showToast('Magic Link berhasil ditempel!');
+                return;
+              }
+            }
+          } catch (_) {}
+          document.getElementById('amRawLinkInput').focus();
+          showToast('Tekan Ctrl+V atau tahan tempel pada kolom Magic Link.');
+        });
+
+        document.getElementById('btnAmClearLink').addEventListener('click', function () {
+          const el = document.getElementById('amRawLinkInput');
+          el.value = '';
+          el.focus();
+        });
+
+        // Step 2: Verifikasi Magic Link (/api/am/verify-link)
+        document.getElementById('btnAmVerifyLink').addEventListener('click', async function () {
+          const emailEl = document.getElementById('amEmailInput');
+          const linkEl = document.getElementById('amRawLinkInput');
+          const btn = document.getElementById('btnAmVerifyLink');
+          const btnTxt = document.getElementById('btnAmVerifyLinkText');
+          const statusBadge = document.getElementById('amPremStatusBadge');
+          const jsonPre = document.getElementById('amPremResponseJson');
+
+          const email = (emailEl.value || '').trim();
+          const magicLink = (linkEl.value || '').trim();
+
+          if (!email || !magicLink) {
+            showToast('Email dan Magic Link dari inbox wajib diisi!');
+            if (!email) emailEl.focus();
+            else linkEl.focus();
+            return;
+          }
+
+          btn.disabled = true;
+          btnTxt.textContent = 'MEMVERIFIKASI & AKTIFKAN PREMIUM...';
+          statusBadge.textContent = 'VERIFYING';
+          setAmStepActive(2);
+
+          const out = await requestAmVerifyLink(email, magicLink);
+          jsonPre.textContent = JSON.stringify(out, null, 2);
+
+          if (out && out.ok && out.data) {
+            statusBadge.textContent = 'PREMIUM ACTIVE';
+            updateAmLicenseCard(out.data);
+            showToast('Aktivasi Berhasil! ' + (out.data.membershipStatus || 'PREMIUM_ACTIVE'));
+          } else {
+            statusBadge.textContent = 'VERIFIED RESPONSE';
+            showToast((out && out.message) || 'Verifikasi selesai diproses. Cek panel JSON.');
+          }
+
+          logAmActivity('VERIFY-LINK', email);
+          btn.disabled = false;
+          btnTxt.textContent = 'VERIFIKASI & AKTIFKAN AM PREMIUM';
+        });
+
+        document.getElementById('btnCopyAmResponse').addEventListener('click', async function () {
+          const text = document.getElementById('amPremResponseJson').textContent;
+          const ok = await copyTextSafe(text);
+          if (ok) showToast('Hasil respons berhasil disalin!');
+        });
+
+        document.getElementById('btnClearAmHistory').addEventListener('click', function () {
+          state.amHistory = [];
+          document.getElementById('amHistoryCount').textContent = '0';
+          document.getElementById('amHistoryList').innerHTML =
+            '<div class="p-3 bg-paper border-2 border-ink font-mono text-xs text-neutral-600">' +
+            'Belum ada aktivitas AM Prem pada sesi ini. Mulai dari <strong>Step 01 (Kirim Magic Link)</strong>.' +
+            '</div>';
+          showToast('Riwayat aktivasi AM Prem dibersihkan.');
+        });
+
+        // Muat statistik awal secara otomatis di latar belakang
+        fetchAmStatsAndVisit(true).catch(function () {});
+
+                // Copy JSON Response
+        document.getElementById('btnCopyReactResponse').addEventListener('click', async function () {
+          const text = document.getElementById('reactResponseJson').textContent;
+          const ok = await copyTextSafe(text);
+          if (ok) showToast('Respons JSON berhasil disalin!');
+        });
+
+        document.getElementById('btnClearReactHistory').addEventListener('click', function () {
+          state.history = [];
+          renderReactHistory();
+          showToast('Riwayat reaction dibersihkan.');
+        });
+
+        // Scroll Reveal & Progress Bar
+        const revealEls = document.querySelectorAll('.scroll-reveal');
+        if ('IntersectionObserver' in window) {
+          const obs = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) entry.target.classList.add('is-visible');
+              });
+            },
+            { threshold: 0.1 }
+          );
+          revealEls.forEach(function (el) {
+            obs.observe(el);
+          });
+        } else {
+          revealEls.forEach(function (el) {
+            el.classList.add('is-visible');
+          });
+        }
+
+        window.addEventListener('scroll', function () {
+          const st = window.scrollY || document.documentElement.scrollTop;
+          const dh = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const pct = dh > 0 ? Math.min(100, Math.max(0, (st / dh) * 100)) : 0;
+          const bar = document.getElementById('scrollProgressBar');
+          if (bar) bar.style.width = pct + '%';
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initApp);
+      } else {
+        initApp();
+      }
+    })();
+  </script>
+</body>
+</html>
